@@ -5,7 +5,9 @@ library(shinythemes)
 fluidPage(
   
   
-  theme = shinytheme("yeti"),
+#  theme = shinytheme("yeti"),
+#  theme = shinytheme("superhero"),
+  theme = shinytheme("spacelab"),
   
   mainPanel(
 
@@ -39,10 +41,22 @@ fluidPage(
     ),
     tabPanel("Hands-On",
              h3("Here you'll learn about the tool")
-    )
-    
-    
-    
+    ),
+  tabsetPanel(
+    tabPanel("First Cue", 
+             tags$div(
+               HTML(paste("This panel displays a plot only if the ", 
+                          tags$span(style="color:red", "Execute Forecast Models"), 
+                          " checkbox is marked and you press the ",
+                          tags$span(style="color:red", "Time Series Plots"),
+                          " button !",
+                          sep = "")))
+             ), 
+    tabPanel("Second Cue", verbatimTextOutput("summary")), 
+    tabPanel("Last Cue", tableOutput("table"))
   )
+    
+    
+   )
   )
 )
