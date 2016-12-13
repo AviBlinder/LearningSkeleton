@@ -1,7 +1,7 @@
 library(shinythemes)
 #A navlistPanel is like a tabPanel, except that the navigation links are on the left
 # instead of the top.
-?shinytheme
+
 fluidPage(
   
   
@@ -15,7 +15,7 @@ fluidPage(
   
   navlistPanel(
     "Clustering",
-    tabPanel(strong("Introduction"),
+    tabPanel(("Introduction"),
              br(),
              tags$div(
                HTML(paste("This panel displays a plot only if the ", 
@@ -33,6 +33,23 @@ fluidPage(
     tabPanel("The Tool",
              h3("Here you'll learn about the tool")
     ),
+    tabPanel("Explanation",
+             h3("First part explenation"),
+             tabsetPanel(
+               tabPanel("First Cue", 
+                        tags$div(
+                          HTML(paste("This panel displays a plot only if the ", 
+                                     tags$span(style="color:red", "Execute Forecast Models"), 
+                                     " checkbox is marked and you press the ",
+                                     tags$span(style="color:red", "Time Series Plots"),
+                                     " button !",
+                                     sep = "")))
+               ), 
+               tabPanel("Second Cue", verbatimTextOutput("summary")), 
+               tabPanel("Last Cue", tableOutput("table"))
+             )
+    ),
+    
     tabPanel("When to Use It",
              h3("Here you'll learn about the tool")
     ),
@@ -41,22 +58,8 @@ fluidPage(
     ),
     tabPanel("Hands-On",
              h3("Here you'll learn about the tool")
-    ),
-  tabsetPanel(
-    tabPanel("First Cue", 
-             tags$div(
-               HTML(paste("This panel displays a plot only if the ", 
-                          tags$span(style="color:red", "Execute Forecast Models"), 
-                          " checkbox is marked and you press the ",
-                          tags$span(style="color:red", "Time Series Plots"),
-                          " button !",
-                          sep = "")))
-             ), 
-    tabPanel("Second Cue", verbatimTextOutput("summary")), 
-    tabPanel("Last Cue", tableOutput("table"))
-  )
-    
-    
+
+    )
    )
   )
 )
