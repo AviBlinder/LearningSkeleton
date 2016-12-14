@@ -4,6 +4,7 @@ library(shinythemes)
 
 fluidPage(
   
+  includeCSS("styles.css"),
   
 #  theme = shinytheme("yeti"),
 #  theme = shinytheme("superhero"),
@@ -36,7 +37,7 @@ fluidPage(
     tabPanel("Explanation",
              h3("First part explenation"),
              tabsetPanel(
-               tabPanel("First Cue", 
+               tabPanel(tags$div(id="First_Cue","First Cue"), 
                         tags$div(
                           HTML(paste("This panel displays a plot only if the ", 
                                      tags$span(style="color:red", "Execute Forecast Models"), 
@@ -45,8 +46,9 @@ fluidPage(
                                      " button !",
                                      sep = "")))
                ), 
-               tabPanel("Second Cue", verbatimTextOutput("summary")), 
-               tabPanel("Last Cue", tableOutput("table"))
+               tabPanel(tags$div(id="Second_Cue","Second Cue"),
+                                  verbatimTextOutput("summary")), 
+               tabPanel(tags$div(id="Third_Cue","Last Cue"), tableOutput("table"))
              )
     ),
     
