@@ -1,6 +1,13 @@
-#Explenation_tab{
+#divfix{
+  bottom   : 0;
+  right    : 0;
+  position : fixed;
+}
+
+#intro1{
   
   color : green;
+  font  : bolder;
 }
 
 

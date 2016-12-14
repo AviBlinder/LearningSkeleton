@@ -20,9 +20,9 @@ fluidPage(
              br(),
              tags$div(
                HTML(paste("This panel displays a plot only if the ", 
-                          tags$span(style="color:red", "Execute Forecast Models"), 
+                          tags$div(id="intro1", "Execute Forecast Models"), 
                           " checkbox is marked and you press the ",
-                          tags$span(style="color:red", "Time Series Plots"),
+                          tags$span(style="font:bold", "Time Series Plots"),
                           " button !",
                           sep = ""))
              ),
@@ -59,7 +59,7 @@ fluidPage(
              h3("Here you'll learn about the tool")
     ),
     tabPanel("Hands-On",
-             h3("Here you'll learn about the tool")
+             actionButton("button1","Press to Start")
 
     )
    )
